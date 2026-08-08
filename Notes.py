@@ -122,3 +122,50 @@ else:
     # Create a 2D array.
     matrix = np.array([[1, 2], [3, 4]])
     print("Matrix:\n", matrix)
+
+
+# Problem1:
+# The baseball data is available as a 2D numpy array with 3 columns (height, weight, age) and 1015 rows. 
+# The name of this numpy array is np_baseball. 
+# After restructuring the data, however, you notice that some height values are abnormally high. 
+# Follow the instructions and discover which summary statistic is best suited if you're 
+# dealing with so-called outliers. np_baseball is available.
+
+import numpy as np
+
+# Create np_height_in from np_baseball
+np_height_in = np.array(np_baseball[:, 0])
+
+# Print out the mean of np_height_in
+print(np.mean(np_height_in))
+
+# Print out the median of np_height_in
+print(np.median(np_height_in))
+
+# TIPS:(Getting columns from a 2D array)
+import numpy as np
+
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+column = matrix[:, 1]   # all rows, column index 1
+print(column)  # [2 5 8]
+
+# Multiple columns at once
+cols = matrix[:, [0, 2]]  # columns 0 and 2
+
+# TIPS: (Getting rows from a 2D array)
+import numpy as np
+
+matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+row = matrix[1]           # single row  → [4 5 6]
+rows = matrix[0:2]        # row slice   → [[1,2,3],[4,5,6]]
+rows = matrix[[0, 2]]     # specific rows by index → [[1,2,3],[7,8,9]]
