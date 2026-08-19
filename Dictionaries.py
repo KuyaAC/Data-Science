@@ -192,3 +192,61 @@ cars = pd.read_csv('cars.csv', index_col = 0)
 print(cars)
 
 
+# Dataframe Columns Accessing
+Comlumns Accessing [ 'column_name' or ["column_name"] ]
+# Sample
+brics['country'] # returns a Series
+brics[['country']] # returns a DataFrame
+
+Row Accessing []
+# Sample
+brics[1:4] # returns rows 1 to 3
+
+# Pandas DataFrame Indexing with loc and iloc
+# LOC
+# loc is label-based, which means that you have to specify rows and columns based on their row and column labels.
+
+# Example: 
+brics.loc['RU'] 
+# returns the row corresponding to Russia, and brics.loc['RU', 'capital'] returns the capital of Russia.
+
+brics.loc[['RU']]
+# returns a DataFrame containing the row corresponding to Russia, and brics.loc[['RU'], ['country', 'capital']] 
+#returns a DataFrame with the country and capital of Russia.
+
+brics.loc[['RU', 'IN'], ['country', 'capital']]
+# returns a DataFrame with the country and capital of Russia and India.
+
+brics.loc[:, ['country', 'capital']]
+# returns a DataFrame with the country and capital columns of all countries.
+
+
+#ILOC
+# iloc is integer position-based, so you have to specify rows and columns by their integer position values (0-based integer position).
+
+brics.iloc[2]
+# returns the row corresponding to Brazil, and brics.iloc[2, 3] returns the capital of Brazil.
+
+brics.iloc[[1, 2, 3]]
+# returns a DataFrame containing the rows corresponding to India, Brazil, and China.
+
+brics.iloc[[1, 2, 3], [0, 2]]
+# returns a DataFrame containing the country and area of India, Brazil, and China.
+
+brics.iloc[:, [0, 2]]
+# returns a DataFrame containing the country and area columns of all countries.
+
+
+# Challenge 1:
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Print out country column as Pandas Series
+print(cars['country'])
+
+# Print out country column as Pandas DataFrame
+print(cars[['country']])
+
+# Print out DataFrame with country and drives_right columns
+print(cars[['country', 'drives_right']])
