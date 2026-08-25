@@ -66,3 +66,15 @@ for name, score in scores.items():
 squares = [number * number for number in range(1, 4)]
 print(squares)
 # This is equivalent to a ``for`` loop that appends each square to a list.
+
+
+# Challenge 1: (while loop)
+# Initialize offset
+offset = 8
+
+
+# Code the while loop
+while offset != 0:
+    print("correcting...")
+    offset = offset - 1
+    print(offset)
