@@ -14,3 +14,22 @@ for i in range(len(bmi)):
     # Print the person number and BMI rounded to two decimals
     print(f"Person {i+1} has a BMI of {bmi[i]:.2f}.")
 
+# for loop in 2D numpy array(using the array above)
+meas = np.array([np_height, np_weight])
+for val in np.nditer(meas):
+    print(val)
+
+# Challenge 1:
+# Definition of dictionary
+europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin',
+          'norway':'oslo', 'italy':'rome', 'poland':'warsaw', 'austria':'vienna' }
+          
+# Iterate over europe
+for x, y in europe.items():
+    print("the capital of " + x +" is " + y)
+
+# Challenge 2:
+
+
+
+
