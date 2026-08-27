@@ -39,6 +39,13 @@ for x in np_height:
 # For loop over np_baseball
 for x in np.nditer(np_baseball):
     print(x)
+# ----------------------- PART 2 -----------------------
+# for loop in a pandas dataframe
+import pandas as pd
+brics = pd.read_csv("brics.csv", index_col=0)
+for label, row in brics.iterrows():
+    brics.loc[label, "name_lenght"] = len(row["country"])
+print(brics)
 
 
 
