@@ -47,5 +47,24 @@ for label, row in brics.iterrows():
     brics.loc[label, "name_lenght"] = len(row["country"])
 print(brics)
 
+# Challenge 3:
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Iterate over rows of cars
+for x, y in cars.iterrows():
+    print(x)
+    print(y)
+
+# Challenge 4:
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Adapt for loop
+for lab, row in cars.iterrows() :
+    print(lab + ": " + str(row['cars_per_cap']))
+
 
 
