@@ -68,3 +68,19 @@ for lab, row in cars.iterrows() :
 
 
 
+
+# Challenge 5:
+# Import cars data
+import pandas as pd
+cars = pd.read_csv('cars.csv', index_col = 0)
+
+# Use .apply(str.upper)
+# full for loop version(using iterrows) :
+# for lab, row in cars.iterrows() :
+#     cars.loc[lab, "COUNTRY"] = row["country"].upper()
+
+# shorter version (using apply)
+cars["COUNTRY"] = cars["country"].apply(str.upper)
+
+
+
