@@ -153,3 +153,23 @@ plt.plot(random_walk)
 
 # Show the plot
 plt.show()
+
+
+# Sample:
+import numpy as np                    # Import NumPy for random numbers
+import matplotlib.pyplot as plt       # Import Matplotlib for plotting
+
+np.random.seed(123)                   # Set a fixed random seed
+final_tails = []                      # Create an empty list for results
+
+for x in range(10000):                # Repeat the experiment 10,000 times
+    tails = [0]                       # Start the count at 0
+
+    for x in range(10):               # Flip the coin 10 times
+        coin = np.random.randint(0, 2) # Randomly generate 0 or 1
+        tails.append(tails[x] + coin) # Add the coin result to the total
+
+    final_tails.append(tails[-1])     # Save the final number of 1s
+
+plt.hist(final_tails, bins=10)        # Create a histogram of the results
+plt.show()                            # Display the histogram
