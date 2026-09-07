@@ -275,31 +275,45 @@ plt.show()
 
 
 # creating a histogram
-# numpy and matplotlib imported, seed set
+# NumPy and Matplotlib are imported, and the random seed is set
 
-# Simulate random walk 500 times
-all_walks = []
-for i in range(500) :
-    random_walk = [0]
-    for x in range(100) :
-        step = random_walk[-1]
-        dice = np.random.randint(1,7)
-        if dice <= 2:
-            step = max(0, step - 1)
-        elif dice <= 5:
-            step = step + 1
-        else:
-            step = step + np.random.randint(1,7)
-        if np.random.rand() <= 0.001 :
-            step = 0
-        random_walk.append(step)
-    all_walks.append(random_walk)
+# Simulate the random walk 500 times
+all_walks = []  # Create an empty list to store all random walks
 
-# Create and plot np_aw_t
-np_aw_t = np.transpose(np.array(all_walks))
+for i in range(500):  # Repeat the random walk 500 times
 
-# Select last row from np_aw_t: ends
-ends = np_aw_t[-1,:]
-# Plot histogram of ends, display plot
-plt.hist(ends)
-plt.show()
+    random_walk = [0]  # Start each random walk at position 0
+
+    for x in range(100):  # Make 100 steps in each random walk
+
+        step = random_walk[-1]  # Get the current/last position
+
+        dice = np.random.randint(1, 7)  # Roll a dice, generating a number from 1 to 6
+
+        if dice <= 2:  # If the dice is 1 or 2
+            step = max(0, step - 1)  # Move down 1 step, but never go below 0
+
+        elif dice <= 5:  # If the dice is 3, 4, or 5
+            step = step + 1  # Move up 1 step
+
+        else:  # If the dice is 6
+            step = step + np.random.randint(1, 7)  # Move up by a random number from 1 to 6
+
+        if np.random.rand() <= 0.001:  # 0.1% chance of falling
+            step = 0  # If you fall, go back to position 0
+
+        random_walk.append(step)  # Add the new position to the random walk
+
+    all_walks.append(random_walk)  # Store this completed random walk
+
+
+# Convert all_walks to a NumPy array and transpose it
+np_aw_t = np.transpose(np.array(all_walks))  # Turn rows into columns and columns into rows
+
+# Select the last row from np_aw_t
+ends = np_aw_t[-1, :]  # Get the final position of all 500 random walks
+
+# Plot a histogram of the final positions
+plt.hist(ends)  # Create a histogram showing how often each final position occurs
+
+plt.show()  # Display the histogram
