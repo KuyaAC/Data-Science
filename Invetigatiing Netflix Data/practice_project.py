@@ -38,22 +38,34 @@ plt.show()
 duration = 100
 
 # Filter the data again to keep only the Comedies
-comedies_2000s = ____
+# Filtering data for the genre
+comedies_2000s = movies2000s[movies2000s["genre"]== "Comedies"]
 
 # Use a for loop and a counter to count how many LONG comedies (more than 120 minutes) there were in the 2000s
 
 # Start the counter
-long_movie_count = ____
+long_movie_count = 0
 
 # Iterate over the labels and rows of the DataFrame and check if the duration is greater than 120
 # If it is, add 1 to the counter, if it isn't, the counter should remain the same
-for ____, ____ in comedies_2000s.iterrows():
-    if ____:
-        ____
+for label, row in comedies_2000s.iterrows():
+    if row["duration"] > 90:
+        long_movie_count = long_movie_count + 1
     else:
-        ____
+        long_movie_count = long_movie_count
 
 print(long_movie_count)
+
+# Creating data visualization in comparison
+short_movie_count = len(comedies_2000s) - long_movie_count
+plt.bar(
+    ["Under 90 minutes", "90 minutes or longer"],
+    [short_movie_count, long_movie_count]
+)
+
+plt.title("2000s Comedy Movies by Duration")
+plt.ylabel("Number of Movies")
+plt.show()
 
 # Bonus: a quicker way of counting values in a column is to use .sum() on a boolean condition
 # Can you get the same answer without a for loop?
