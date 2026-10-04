@@ -135,3 +135,157 @@ print(busiest_year)
 # Then print the average gap
 netflix_df["gap"] = ____
 print(____)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -------------------------------------------SOLUTIONS-------------------------------------------
+# ==========================================================
+# SOLUTIONS - Netflix EDA Challenges 1 to 5
+# (Try the challenges first before looking at this file!)
+# ==========================================================
+import pandas as pd
+import matplotlib.pyplot as plt
+
+netflix_df = pd.read_csv("netflix_data.csv")
+
+# ----------------------------------------------------------
+# CHALLENGE 1: Genre popularity
+# ----------------------------------------------------------
+netflix_movies = netflix_df[netflix_df["type"] == "Movie"]
+
+genre_counts = netflix_movies["genre"].value_counts()
+top_5_genres = genre_counts.head(5)
+
+plt.bar(top_5_genres.index, top_5_genres.values)
+plt.title('Top 5 Movie Genres on Netflix')
+plt.xlabel('Genre')
+plt.ylabel('Number of Movies')
+plt.show()
+
+most_common_genre = "Dramas"
+
+dramas = netflix_movies[netflix_movies["genre"] == "Dramas"]
+dramas_count = len(dramas)
+print(dramas_count)  # 1343
+
+# ----------------------------------------------------------
+# CHALLENGE 2: TV Shows and seasons
+# ----------------------------------------------------------
+tv_shows = netflix_df[netflix_df["type"] == "TV Show"]
+
+# For TV shows, the "duration" column holds the number of seasons
+plt.hist(tv_shows["duration"])
+plt.title('Distribution of TV Show Seasons')
+plt.xlabel('Number of Seasons')
+plt.ylabel('Number of TV Shows')
+plt.show()
+
+# Most TV shows have only 1 season
+typical_seasons = 1
+
+multi_season_count = 0
+for label, row in tv_shows.iterrows():
+    if row["duration"] >= 3:
+        multi_season_count = multi_season_count + 1
+    else:
+        multi_season_count = multi_season_count
+
+print(multi_season_count)  # 23
+
+# Quicker way
+# (tv_shows["duration"] >= 3).sum()
+
+# ----------------------------------------------------------
+# CHALLENGE 3: Movies from India
+# ----------------------------------------------------------
+indian_movies = netflix_movies[netflix_movies["country"] == "India"]
+
+avg_duration_india = indian_movies["duration"].mean()
+print(avg_duration_india)  # about 128.1
+
+# Find the longest Indian movie with a for loop
+longest_duration = 0
+longest_title = ""
+for label, row in indian_movies.iterrows():
+    if row["duration"] > longest_duration:
+        longest_duration = row["duration"]
+        longest_title = row["title"]
+
+print(longest_title, longest_duration)  # Sangam 228
+
+# Quicker way
+# indian_movies.loc[indian_movies["duration"].idxmax(), "title"]
+
+# ----------------------------------------------------------
+# CHALLENGE 4: Releases over time
+# ----------------------------------------------------------
+releases_per_year = netflix_movies["release_year"].value_counts().sort_index()
+
+plt.plot(releases_per_year.index, releases_per_year.values)
+plt.title('Movies on Netflix by Release Year')
+plt.xlabel('Release Year')
+plt.ylabel('Number of Movies')
+plt.show()
+
+peak_year = releases_per_year.idxmax()
+print(peak_year)  # 2017
+
+# Count movies released before 1980
+old_movie_count = 0
+for year, count in releases_per_year.items():
+    if year < 1980:
+        old_movie_count = old_movie_count + count
+
+print(old_movie_count)  # 96
+
+# Quicker way
+# (netflix_movies["release_year"] < 1980).sum()
+
+# ----------------------------------------------------------
+# CHALLENGE 5: When was content added?
+# ----------------------------------------------------------
+netflix_df["date_added"] = pd.to_datetime(netflix_df["date_added"], format="mixed")
+netflix_df["year_added"] = netflix_df["date_added"].dt.year
+
+added_per_year = netflix_df["year_added"].value_counts().sort_index()
+
+plt.bar(added_per_year.index, added_per_year.values)
+plt.title('Titles Added to Netflix per Year')
+plt.xlabel('Year Added')
+plt.ylabel('Number of Titles')
+plt.show()
+
+busiest_year = added_per_year.idxmax()
+print(busiest_year)  # 2019
+
+# Average gap (in years) between release and being added to Netflix
+netflix_df["gap"] = netflix_df["year_added"] - netflix_df["release_year"]
+print(netflix_df["gap"].mean())  # about 5.8
