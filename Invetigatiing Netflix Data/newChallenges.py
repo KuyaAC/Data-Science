@@ -68,20 +68,20 @@ plt.show()
 # CHALLENGE 3: Movies from India
 # ----------------------------------------------------------
 # Keep only the movies where the country is "India"
-indian_movies = ____
+indian_movies = netflix_df[netflix_df["country"] == "India"]
 
 # Calculate the average duration of these movies
-avg_duration_india = ____
+avg_duration_india = indian_movies["duration"].mean()
 print(avg_duration_india)
 
 # Use a for loop to find the title and duration of the longest Indian movie
 # Hint: keep track of the longest duration seen so far, and update it when you find a longer one
 longest_duration = 0
 longest_title = ""
-for ____, ____ in indian_movies.iterrows():
-    if ____:
-        ____
-        ____
+for labels, rows in indian_movies.iterrows():
+    if rows["duration"] > longest_duration:
+        longest_duration = rows["duration"]
+        longest_title = rows["title"]
 
 print(longest_title, longest_duration)
 
@@ -91,26 +91,30 @@ print(longest_title, longest_duration)
 # CHALLENGE 4: Releases over time
 # ----------------------------------------------------------
 # Count how many movies were released in each year, sorted by year
-releases_per_year = ____
+releases_per_year = netflix_df["release_year"].value_counts().sort_index()
+desc = releases_per_year.sort_values(ascending=False)
+desc
 
 # Visualize the trend with a line plot
-____
+plt.plot(releases_per_year.index, releases_per_year.values)
 plt.title('Movies on Netflix by Release Year')
 plt.xlabel('Release Year')
 plt.ylabel('Number of Movies')
 plt.show()
 
+
 # Find the release year with the most movies
-peak_year = ____
+peak_year = 2017
 print(peak_year)
 
 # Use a for loop over releases_per_year.items() to count movies released before 1980
-old_movie_count = ____
-for ____, ____ in releases_per_year.items():
-    if ____:
-        ____
+old_movie_count = 0
 
-print(old_movie_count)
+for labels, row in releases_per_year.items():
+    if labels < 1980:
+        old_movie_count = old_movie_count + row
+
+print("Number of old movies: ", old_movie_count)
 
 # Bonus: get the same answer with a boolean condition and .sum()
 
