@@ -10,27 +10,15 @@ netflix_df = pd.read_csv("netflix_data.csv")
 # ----------------------------------------------------------
 # CHALLENGE 1: Genre popularity
 # ----------------------------------------------------------
-# Subset the DataFrame for type "Movie"
-netflix_movies = ____
-
-# Count how many movies there are in each genre, and keep only the 5 biggest genres
-genre_counts = ____
-top_5_genres = ____
-
-# Visualize the top 5 genres with a bar chart
-____
-plt.title('Top 5 Movie Genres on Netflix')
-plt.xlabel('Genre')
-plt.ylabel('Number of Movies')
+#1.Genre popularity uses value_counts() and a bar chart to find the top 5 movie genres, then counts the movies in the most common one.
+# My Solution:
+no_per_genre = netflix_df["genre"].value_counts()
+no_per_genre.head(5).plot(kind="bar")
+plt.title("Top 5 most popular netflix genre")
+plt.xlabel("Genre")
+plt.ylabel("Count of Movies")
 plt.show()
 
-# Save the name of the most common genre as a string
-most_common_genre = ____
-
-# Filter the movies to keep only that genre and save how many there are
-dramas = ____
-dramas_count = ____
-print(dramas_count)
 
 # ----------------------------------------------------------
 # CHALLENGE 2: TV Shows and seasons
