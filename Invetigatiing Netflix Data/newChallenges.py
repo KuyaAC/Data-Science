@@ -23,30 +23,46 @@ plt.show()
 # ----------------------------------------------------------
 # CHALLENGE 2: TV Shows and seasons
 # ----------------------------------------------------------
-# Subset the DataFrame for type "TV Show"
-tv_shows = ____
-
-# For TV shows, the "duration" column holds the number of seasons
-# Visualize its distribution and save the most common number of seasons
-____
-plt.title('Distribution of TV Show Seasons')
-plt.xlabel('Number of Seasons')
-plt.ylabel('Number of TV Shows')
+# 2.TV shows and seasons plots the seasons histogram and uses a for loop to count shows with 3 or more seasons.
+# No 2 solution:
+type_of_show = netflix_df["type"].value_counts()
+type_of_show
+type_of_show.plot(kind="bar")
+plt.title("Movies vs TV Shows by Volume")
+plt.xlabel("Type of Series")
+plt.ylabel("Number of movie")
 plt.show()
 
-typical_seasons = ____
+tv_shows = netflix_df[netflix_df["type"]== "TV Show"]
+tv_shows
 
-# Use a for loop and a counter to count how many TV shows have 3 or more seasons
-multi_season_count = ____
-for ____, ____ in tv_shows.iterrows():
-    if ____:
-        ____
+plt.hist(tv_shows["duration"])
+plt.title("Distribution of TV Show Seasons")
+plt.xlabel("No of Season")
+plt.xticks(range(1, 16))
+plt.ylabel("No of Series")
+
+no_tv_shows = tv_shows["duration"].value_counts()
+no_tv_shows
+
+more_season = 0
+
+for label, row in tv_shows.iterrows():
+    if row["duration"] > 3:
+        more_season = more_season + 1
     else:
-        ____
+        more_season = more_season
+print(more_season)
 
-print(multi_season_count)
+less_season = len(tv_shows) - more_season
+plt.bar(
+    ["Series Under 3 Season", "Series more than 3 season"],
+    [less_season, more_season]
+)
+plt.title("Comparison of number of TV show under/over 3 season")
+plt.ylabel("Number of season")
+plt.show()
 
-# Bonus: get the same answer without a loop using .sum()
 
 # ----------------------------------------------------------
 # CHALLENGE 3: Movies from India
