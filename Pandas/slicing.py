@@ -20,3 +20,11 @@ dogs_ind.loc["Beagle":"Chihuahua"] # Slicing from Beagle to Chihuahua
 # Slicing inner level of a multi-level index
 dogs_ind2 = dogs.set_index(["breed", "color"]).sort_index()
 dogs_ind2.loc[("Beagle", "Tri-color"):("Chihuahua", "Fawn")] # Slicing from Beagle, Tri-color to Chihuahua, Fawn   
+
+
+# Slicing columns
+dogs_ind.loc[:, "height":"weight"] # Slicing from height to weight columns
+
+# Slicing rows and columns
+dogs_ind.loc["Beagle":"Chihuahua", "height":"weight"] # Slicing from Beagle to Chihuahua rows and height to weight columns
+dogs_ind.loc[("Beagle","brown"):("Chihuahua","fawn"), "height":"weight"]
