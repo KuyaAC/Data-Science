@@ -28,3 +28,8 @@ dogs_ind.loc[:, "height":"weight"] # Slicing from height to weight columns
 # Slicing rows and columns
 dogs_ind.loc["Beagle":"Chihuahua", "height":"weight"] # Slicing from Beagle to Chihuahua rows and height to weight columns
 dogs_ind.loc[("Beagle","brown"):("Chihuahua","fawn"), "height":"weight"]
+
+# Subsetting rows and columns number using .iloc[]
+print(dogs_ind.iloc[1:4, 0:2]) # Slicing rows 1 to 3 and columns 0 to 1
+
+
