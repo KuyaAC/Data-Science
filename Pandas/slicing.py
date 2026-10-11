@@ -32,4 +32,16 @@ dogs_ind.loc[("Beagle","brown"):("Chihuahua","fawn"), "height":"weight"]
 # Subsetting rows and columns number using .iloc[]
 print(dogs_ind.iloc[1:4, 0:2]) # Slicing rows 1 to 3 and columns 0 to 1
 
+# Challenge 1:
+# Sort the index of temperatures_ind
+temperatures_srt = temperatures_ind.sort_index()
+
+# Subset rows from Pakistan to Philippines
+print(temperatures_srt.loc["Pakistan":"Philippines"])
+
+# Try to subset rows from Lahore to Manila
+print(temperatures_srt.loc["Lahore":"Manila"])
+
+# Subset rows from Pakistan, Lahore to Philippines, Manila
+print(temperatures_srt.loc[("Pakistan", "Lahore"):("Philippines", "Manila")])
 
