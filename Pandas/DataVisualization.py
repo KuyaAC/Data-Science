@@ -24,10 +24,26 @@ plt.show()
 dog_pack.plot(x="height_cm", y="weight_kg", kind="scatter")
 plt.show()
 
-# Layering plot and adding legend
-dog_pack[dog_pack["sex"]=="F"]["height_cm"].hist()
-dog_pack[dog_pack["sex"]=="M"]["height_cm"].hist()
+# Layering plot and adding legend, making chart translucent
+dog_pack[dog_pack["sex"]=="F"]["height_cm"].hist(alpha=0.7)
+dog_pack[dog_pack["sex"]=="M"]["height_cm"].hist(alpha=0.7)
 plt.legend(["F", "M"])
+plt.show()
+
+# Challenge 1:
+# Import matplotlib.pyplot with alias plt
+import matplotlib.pyplot as plt
+
+# Look at the first few rows of data
+print(avocados.head())
+
+# Get the total number of avocados sold of each size
+nb_sold_by_size = avocados.groupby("size")["nb_sold"].sum()
+
+# Create a bar plot of the number of avocados sold by size
+nb_sold_by_size.plot(kind="bar")
+
+# Show the plot
 plt.show()
 
 
