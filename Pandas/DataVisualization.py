@@ -46,4 +46,24 @@ nb_sold_by_size.plot(kind="bar")
 # Show the plot
 plt.show()
 
+# Challenge 2:
+# Scatter plot of avg_price vs. nb_sold with title
+avocados.plot(y="avg_price", x="nb_sold", title="Number of avocados sold vs. average price", kind="scatter")
+
+# Show the plot
+plt.show()
+
+# Challenge 3:
+# Modify bins to 20
+avocados[avocados["type"] == "conventional"]["avg_price"].hist(alpha=0.5, bins=20)
+
+# Modify bins to 20
+avocados[avocados["type"] == "organic"]["avg_price"].hist(alpha=0.5, bins=20)
+
+# Add a legend
+plt.legend(["conventional", "organic"])
+
+# Show the plot
+plt.show()
+
 
