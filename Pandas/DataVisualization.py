@@ -21,5 +21,13 @@ sully.plot(x="date", y="weight_kg", kind="line", rot=45)
 plt.show()
 
 # Scatter plot, better for comparing 2 numeric data
+dog_pack.plot(x="height_cm", y="weight_kg", kind="scatter")
+plt.show()
+
+# Layering plot and adding legend
+dog_pack[dog_pack["sex"]=="F"]["height_cm"].hist()
+dog_pack[dog_pack["sex"]=="M"]["height_cm"].hist()
+plt.legend(["F", "M"])
+plt.show()
 
 
