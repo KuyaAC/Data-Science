@@ -57,6 +57,16 @@ airline_totals["bumps_per_10k"] = airline_totals["nb_bumped"] / airline_totals["
 # Print airline_totals
 print(airline_totals)
 
+#Challenge in exporting dataframe into CSV
+# Create airline_totals_sorted
+airline_totals_sorted = airline_totals.sort_values("bumps_per_10k", ascending=False)
+
+# Print airline_totals_sorted
+print(airline_totals_sorted)
+
+# Save as airline_totals_sorted.csv
+airline_totals_sorted.to_csv("airline_totals_sorted.csv")
+
 
 
 
