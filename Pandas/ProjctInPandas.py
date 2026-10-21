@@ -30,8 +30,6 @@ schools.head()
 
 # How to approach the project
 # 1. Finding schools with the best math scores
-# Step 1 :
-# Fix: Sort the DataFrame by the calculated percentage, not use it as a column selector
 best_math_schools = schools.copy()
 best_math_schools["math_percent"] = best_math_schools["average_math"] / 800 * 100
 # Atleast > 80%
@@ -40,6 +38,13 @@ best_math_schools = best_math_schools.sort_values("math_percent", ascending=Fals
 best_math_schools[["school_name", "average_math"]]
 
 # 2. Identifying the top 10 performing schools
+# Step 2:
+# Identifying SAT Score
+top_10_schools = schools.copy()
+top_10_schools["total_SAT"] = top_10_schools["average_math"] + top_10_schools["average_reading"] + top_10_schools["average_writing"]
+top_10_schools = top_10_schools.sort_values("total_SAT", ascending=False)
+# printing top 10 school based on total SAT
+top_10_schools[["school_name", "total_SAT"]].head(10)
 
 # 3. Locating the NYC borough with the largest standard deviation in SAT performance
 
