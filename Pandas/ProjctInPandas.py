@@ -18,9 +18,30 @@
 #     Round all numeric values to two decimal places.
 
 
+
+# Importing Data:
+import pandas as pd
+
+# Read in the data
+schools = pd.read_csv("schools.csv")
+
+# Preview the data
+schools.head()
+
 # How to approach the project
 # 1. Finding schools with the best math scores
+# Step 1 :
+# Fix: Sort the DataFrame by the calculated percentage, not use it as a column selector
+best_math_schools = schools.copy()
+best_math_schools["math_percent"] = best_math_schools["average_math"] / 800 * 100
+# Atleast > 80%
+best_math_schools = best_math_schools[best_math_schools["math_percent"] > 80]
+best_math_schools = best_math_schools.sort_values("math_percent", ascending=False)
+best_math_schools[["school_name", "average_math"]]
 
 # 2. Identifying the top 10 performing schools
 
 # 3. Locating the NYC borough with the largest standard deviation in SAT performance
+
+
+
