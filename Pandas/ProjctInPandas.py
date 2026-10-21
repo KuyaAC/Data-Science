@@ -37,16 +37,34 @@ best_math_schools = best_math_schools[best_math_schools["math_percent"] > 80]
 best_math_schools = best_math_schools.sort_values("math_percent", ascending=False)
 best_math_schools[["school_name", "average_math"]]
 
-# 2. Identifying the top 10 performing schools
-# Step 2:
+
+# Step 2: Identifying top 10 performing school
 # Identifying SAT Score
-top_10_schools = schools.copy()
-top_10_schools["total_SAT"] = top_10_schools["average_math"] + top_10_schools["average_reading"] + top_10_schools["average_writing"]
-top_10_schools = top_10_schools.sort_values("total_SAT", ascending=False)
+top_10_school = schools.copy()
+top_10_school["total_SAT"] = top_10_school["average_math"] + top_10_school["average_reading"] + top_10_school["average_writing"]
+top_10_school = top_10_school.sort_values("total_SAT", ascending=False)
 # printing top 10 school based on total SAT
-top_10_schools[["school_name", "total_SAT"]].head(10)
+top_10_schools = top_10_school[["school_name", "total_SAT"]].head(10)
+top_10_schools
 
 # 3. Locating the NYC borough with the largest standard deviation in SAT performance
+# Group schools by borough and calculate statistics
+borough_stats = top_10_school.groupby("borough")["total_SAT"].agg(
+    num_schools="count",
+    average_SAT="mean",
+    std_SAT="std"
+).reset_index()
 
+# Find the borough with the largest standard deviation
+largest_std_dev = borough_stats.nlargest(1, "std_SAT")
+
+# Round all numeric columns to 2 decimal places
+largest_std_dev[["average_SAT", "std_SAT"]] = (
+    largest_std_dev[["average_SAT", "std_SAT"]].round(2)
+)
+
+largest_std_dev["num_schools"] = largest_std_dev["num_schools"].astype(int)
+
+print(largest_std_dev)
 
 
