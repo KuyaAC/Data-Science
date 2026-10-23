@@ -10,3 +10,14 @@ import matplotlib.pyplot as plt
 grants_license_wards.groupby("ward").agg("sum").plot(kind='bar', y='grant')
 plt.show()
 
+#Challenge 1:
+# Merge the ridership and cal tables
+ridership_cal = ridership.merge(cal, on=['day', 'month', 'year'])
+
+
+
+
+
+
+
+
