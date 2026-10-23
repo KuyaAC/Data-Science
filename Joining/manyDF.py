@@ -32,6 +32,9 @@ filter_criteria = ((ridership_cal_stations['month'] == 7)
 # Use .loc and the filter to select for rides
 print(ridership_cal_stations.loc[filter_criteria, 'rides'].sum())
 
+#Challenge 4:
+
+
 
 
 
