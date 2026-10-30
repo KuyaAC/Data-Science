@@ -16,3 +16,6 @@ df.merge(df, left_on='manager_id', right_on='employee_id')
 
 #More sample:
 original_sequel = sequels.merge(sequels, left_on="id", right_on="seque",suffixes('_org', '_seq'))
+
+#Format Result:
+print(original_sequel[,['title_org', 'title_seq']].head()
