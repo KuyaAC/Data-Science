@@ -13,3 +13,6 @@
 df.merge(df, left_on='manager_id', right_on='employee_id')
 
 #Remember: Use a self join when one row references another row in the same DataFrame.
+
+#More sample:
+original_sequel = sequels.merge(sequels, left_on="id", right_on="seque",suffixes('_org', '_seq'))
