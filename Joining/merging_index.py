@@ -37,6 +37,10 @@ orig_seq = sequels_fin.merge(sequels_fin, how='inner', left_on='sequel',
 # Add calculation to subtract revenue_org from revenue_seq 
 orig_seq['diff'] = orig_seq['revenue_seq'] - orig_seq['revenue_org']
 
+# Select the title_org, title_seq, and diff 
+titles_diff = orig_seq[['title_org', 'title_seq', 'diff']]
 
+# Print the first rows of the sorted titles_diff
+print(titles_diff.sort_values('diff', ascending=False).head())
 
 
