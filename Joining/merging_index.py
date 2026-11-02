@@ -18,3 +18,9 @@ samuel_cast = samuel.merge(cast, left_on=['movie_id', 'cast_id']
                         left_index=True, right_on=['movie_id', 'cast_id'], 
                         right_index=True)
 
+#CHallenge no 1:
+# Merge to the movies table the ratings table on the index
+movies_ratings = movies.merge(ratings, on='id', how='left')
+
+# Print the first few rows of movies_ratings
+print(movies_ratings.head())
