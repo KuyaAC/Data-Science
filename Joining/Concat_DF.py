@@ -20,3 +20,9 @@ tracks_from_albums = pd.concat([tracks_master, tracks_ride, tracks_st],
                                sort=True)
 print(tracks_from_albums)
 
+# Challenge 3:
+# Concatenate the tracks, show only columns names that are in all tables
+tracks_from_albums = pd.concat([tracks_master, tracks_ride, tracks_st],
+                               ignore_index=False,
+                               sort=True, join='inner')
+print(tracks_from_albums)
