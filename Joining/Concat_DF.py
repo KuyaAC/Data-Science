@@ -7,4 +7,11 @@ pd.concat([inv_jan, inv_feb, inv_mar], ignore_index=False,
 #Concat tables with different columns names
 pd.concat([inv_jan, inv_feb, inv_mar], join='inner')
 
+#Challenge 1:
+# Concatenate the tracks (sorted)
+tracks_from_albums = pd.concat([tracks_master, tracks_ride, tracks_st],
+                               sort=True)
+print(tracks_from_albums)
+
+# Challenge 2:
 
