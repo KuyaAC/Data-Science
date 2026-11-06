@@ -43,8 +43,14 @@ avg_inv_by_month = inv_jul_thr_sep.groupby(level=0).agg(
 avg_inv_by_month.plot(kind='bar')
 plt.show()
 
-#Verifying Data in pd.concat() means checking the concatenated DataFrame to ensure all rows and columns are correctly combined, no unexpected duplicates or missing values exist, and the resulting data is accurate and consistent.
+#Verifying Data in pd.concat() means checking the concatenated DataFrame to all rows and columns are correctly combined, no unexpected duplicates or missing values exist, and the resulting data is accurate and consistent.
 tracks.merge(specs, on='tid', validate='one_to_one')
+#This check the duplicate and give error message
+df.concat(verify_integrity=True)
+
+#Show the duplicates rows in the table
+pd.concat([inv_feb,inv_mar], verify_integrity=False
+
 
 
 
