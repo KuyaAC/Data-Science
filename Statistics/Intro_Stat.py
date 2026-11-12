@@ -24,12 +24,12 @@
 # - Understand product price distributions.
 #
 # Python:
-# df.describe()
-# df['sales'].mean()
-# df['sales'].median()
-# df['sales'].mode()
-# df['sales'].std()
-# df['sales'].var()
+df.describe()
+df['sales'].mean()
+df['sales'].median()
+df['sales'].mode()
+df['sales'].std()
+df['sales'].var()
 
 
 # 2. INFERENTIAL STATISTICS
@@ -99,17 +99,17 @@
 # - Investigate unusual business performance.
 #
 # Python:
-# Q1 = df['sales'].quantile(0.25)
-# Q3 = df['sales'].quantile(0.75)
-# IQR = Q3 - Q1
-#
-# lower = Q1 - 1.5 * IQR
-# upper = Q3 + 1.5 * IQR
-#
-# outliers = df[
-#     (df['sales'] < lower) |
-#     (df['sales'] > upper)
-# ]
+Q1 = df['sales'].quantile(0.25)
+Q3 = df['sales'].quantile(0.75)
+IQR = Q3 - Q1
+
+lower = Q1 - 1.5 * IQR
+upper = Q3 + 1.5 * IQR
+
+outliers = df[
+    (df['sales'] < lower) |
+    (df['sales'] > upper)
+]
 
 
 # 6. HYPOTHESIS TESTING
