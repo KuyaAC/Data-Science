@@ -63,11 +63,11 @@ df['sales'].var()
 # - Investigate product prices and customer demand.
 #
 # Python:
-# df['advertising'].corr(df['sales'])
-# df.corr(numeric_only=True)
-#
+df['advertising'].corr(df['sales'])
+df.corr(numeric_only=True)
+
 # Visualization:
-# df.plot(kind='scatter', x='advertising', y='sales')
+df.plot(kind='scatter', x='advertising', y='sales')
 
 
 # 4. PROBABILITY DISTRIBUTION
@@ -140,9 +140,9 @@ outliers = df[
 # - Evaluate new business processes.
 #
 # Python:
-# from scipy import stats
-#
-# t_stat, p_value = stats.ttest_ind(group_a, group_b)
+from scipy import stats
+
+t_stat, p_value = stats.ttest_ind(group_a, group_b)
 
 
 # 7. REGRESSION ANALYSIS
