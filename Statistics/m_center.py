@@ -23,3 +23,6 @@ rice_consumption['co2_emission'].hist()
 
 # Display the plot
 plt.show()
+
+# Calculate mean and median of co2_emission with .agg()
+print(rice_consumption['co2_emission'].agg(['mean', 'median']))
