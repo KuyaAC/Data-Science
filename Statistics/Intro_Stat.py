@@ -206,3 +206,16 @@ t_stat, p_value = stats.ttest_ind(group_a, group_b)
 # Understand what the data tells you and use statistical
 # evidence to support your conclusions.
 # ============================================================
+
+
+#Different type of statistics:
+Numerical: Quantitative data that can be measured and expressed in numbers.
+Categorical: Qualitative data that represents categories or groups.
+
+#Types of data:
+Numerical
+-Continuous: Can take any value within a range (e.g., height, weight).
+-Discrete: Can only take specific values (e.g., number of students, shoe size).
+Categorical
+-Nominal: Categories without a specific order (e.g., colors, gender).
+-Ordinal: Categories with a specific order (e.g., education level, customer satisfaction).
