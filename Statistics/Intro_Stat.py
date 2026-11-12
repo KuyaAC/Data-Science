@@ -219,3 +219,28 @@ Numerical
 Categorical
 -Nominal: Categories without a specific order (e.g., colors, gender).
 -Ordinal: Categories with a specific order (e.g., education level, customer satisfaction).
+
+# DESCRIPTIVE STATISTICS
+# Summarizes and describes collected data.
+# Uses mean, median, mode, standard deviation, and graphs.
+# Purpose: Understand what the data shows.
+
+# Example:
+# Calculate the average grades of 30 students in a class.
+
+
+# INFERENTIAL STATISTICS
+# Uses sample data to make predictions or conclusions
+# about a larger population.
+# Uses hypothesis testing, confidence intervals, and regression.
+# Purpose: Make estimates or decisions based on sample data.
+
+# Example:
+# Use the grades of 30 students to estimate the
+# average grades of all students in the school.
+
+
+# KEY DIFFERENCE:
+# Descriptive = Summarizes existing data.
+# Inferential = Draws conclusions about a population
+# using sample data.
