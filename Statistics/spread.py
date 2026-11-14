@@ -29,3 +29,18 @@ mean_abs_dist = np.mean(abs_dist)
 #Quantiles - values that divide the data into equal parts.
 np.quantile(msleep['sleep_total'], 0.5) #0.5 quantile is the median
 
+#Quartiles - values that divide the data into four equal parts.
+np.quantile(msleep['sleep_total'], [0, 0.25, 0.5, 0.75, 1])
+
+import matplotlib.pyplot as plt
+plt.boxplot(msleep['sleep_total'])
+plt.show()
+
+#Quantiles using np.linspace()
+np.linspace(start, stop, num)
+
+np.quantile(msleep['sleep_total'], [0, 0.2, 0.4, 0.6, 0.8, 1])
+
+#is same as:
+
+np.quantile(msleep['sleep_total'], np.linspace(0, 1, 6))
