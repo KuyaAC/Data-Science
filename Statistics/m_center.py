@@ -26,3 +26,12 @@ plt.show()
 
 # Calculate mean and median of co2_emission with .agg()
 print(rice_consumption['co2_emission'].agg(['mean', 'median']))
+
+
+#Measuring the spread of data
+# Variance - average distance from each data point to the data's mean.
+# To calculate variance:
+# Subtract mean from each data point.
+dists =msleep['sleep_total'] - msleep['sleep_total'].mean()
+
+
