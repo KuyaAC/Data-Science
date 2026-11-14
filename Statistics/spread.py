@@ -79,3 +79,13 @@ plt.show()
 plt.figure()
 food_consumption[food_consumption['food_category'] == 'eggs']['co2_emission'].plot(kind='hist')
 plt.show()
+
+#Challenge 2:
+# Calculate the quartiles of co2_emission
+print(np.quantile(food_consumption['co2_emission'], [0, 0.25, 0.5, 0.75, 1]))
+
+# Calculate the six quantiles that split up the data into 5 pieces (quintiles) of the co2_emission column of food_consumption.
+print(np.quantile(food_consumption['co2_emission'], np.linspace(0, 1, 6)))
+
+# Calculate the deciles of co2_emission
+print(np.quantile(food_consumption['co2_emission'], np.linspace(0, 1, 11)))
