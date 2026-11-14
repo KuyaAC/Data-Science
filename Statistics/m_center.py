@@ -43,3 +43,9 @@ variance = sum_sq_dist / (len(msleep['sleep_total']) - 1)
 #OR use:
 np.var(msleep['sleep_total'], ddof=1)
 
+
+#Standard Deviation - square root of variance.
+np.sqrt(np.var(msleep['sleep_total'], ddof=1))
+#OR use:
+np.std(msleep['sleep_total'], ddof=1)
+
