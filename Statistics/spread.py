@@ -52,4 +52,15 @@ np.quantile(msleep['sleep_total'], 0.75) - np.quantile(msleep['sleep_total'], 0.
 from scipy.stats import iqr
 iqr(msleep['sleep_total'])
 
+#Outliers: data points that is substatially different from the rest of data
+#How to identify outliers:
+#- data < Q1 - 1.5 * IQR
+#- data > Q3 + 1.5 * IQR
+
+from scipy.stats import iqr
+iqr = iqr(msleep['bodywt'])
+lower_threshold = np.quantile(msleep['bodywt'], 0.25) - 1.5 * iqr
+upper_threshold = np.quantile(msleep['bodywt'], 0.75) + 1.5 * iqr
+
+msleep_outliers = msleep[(msleep['bodywt'] < lower_threshold) | (msleep['bodywt'] > upper_threshold)]
 
