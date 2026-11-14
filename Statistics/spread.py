@@ -44,3 +44,12 @@ np.quantile(msleep['sleep_total'], [0, 0.2, 0.4, 0.6, 0.8, 1])
 #is same as:
 
 np.quantile(msleep['sleep_total'], np.linspace(0, 1, 6))
+
+#Interquartile range (IQR) - difference between the 75th and 25th percentiles.
+np.quantile(msleep['sleep_total'], 0.75) - np.quantile(msleep['sleep_total'], 0.25)
+
+#OR
+from scipy.stats import iqr
+iqr(msleep['sleep_total'])
+
+
