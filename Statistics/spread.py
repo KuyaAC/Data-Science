@@ -64,3 +64,6 @@ upper_threshold = np.quantile(msleep['bodywt'], 0.75) + 1.5 * iqr
 
 msleep_outliers = msleep[(msleep['bodywt'] < lower_threshold) | (msleep['bodywt'] > upper_threshold)]
 
+#All in one line:
+msleep['bodywt'].describe()
+
