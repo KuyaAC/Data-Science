@@ -42,7 +42,16 @@ random.sample([1, 2, 3, 4, 5], k=3)
 #Independent events: the outcome of one event does not affect the outcome of another event.
 #Dependeeeeent events: the outcome of one event affects the outcome of another event.
 
+#Challenge 1:
+# Count the deals for each product
+counts = amir_deals['product'].value_counts()
 
+# Calculate probability of picking a deal with each product
+probs = counts / amir_deals.shape[0]
+print(probs)
+
+ #Challenge 2:
+ 
 
 
 
