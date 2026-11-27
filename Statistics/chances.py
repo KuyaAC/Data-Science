@@ -12,6 +12,31 @@ sales_counts.sample()
 sales_counts.sample(5, replace = True) #with replacement
 sales_counts.sample(5, replace = False) #without replacement
 
+# SAMPLING METHODS
+
+# 1. WITH REPLACEMENT
+# - Selected items are returned to the population.
+# - The same item can be selected multiple times.
+# Examples: Flipping a coin 3 times, rolling a die twice.
+
+# 2. WITHOUT REPLACEMENT
+# - Selected items are NOT returned to the population.
+# - The same item cannot be selected again.
+# Examples: Picking 3 people from 20, dealing cards, selecting products.
+
+# PYTHON FUNCTIONS
+import random
+
+# With replacement
+random.choices([1, 2, 3, 4, 5], k=3)
+
+# Without replacement
+random.sample([1, 2, 3, 4, 5], k=3)
+
+# KEY DIFFERENCE:
+# choices() = With replacement
+# sample()  = Without replacement
+
 
 #Kind of events:
 #Independent events: the outcome of one event does not affect the outcome of another event.
